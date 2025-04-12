@@ -3,5 +3,38 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
+    "rfvf": {
+      "projectType": "library",
+      "root": "projects/rfvf",
+      "sourceRoot": "projects/rfvf/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/rfvf/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/rfvf/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/rfvf/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/rfvf/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
+    }
   }
 }
